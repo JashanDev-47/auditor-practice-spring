@@ -5,15 +5,16 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
+
+import java.time.LocalDateTime;
 
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
-@Data
-public class PostEntity {
+@Getter
+@Setter
+public class PostEntity extends AuditEntity{
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -21,4 +22,6 @@ public class PostEntity {
 
     private String title;
     private String description;
+
+
 }

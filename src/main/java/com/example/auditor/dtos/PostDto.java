@@ -4,7 +4,8 @@ package com.example.auditor.dtos;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.RequiredArgsConstructor;
+
+import java.time.LocalDateTime;
 
 
 @Data
@@ -15,5 +16,7 @@ public class PostDto {
     private Long postId;
     private String title;
     private String description;
+
+
 
 }
