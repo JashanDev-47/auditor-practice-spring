@@ -38,9 +38,9 @@ public class PostServiceImp implements PostService {
 
     @Override
     public PostDto updatePost(Long postId, PostDto postDto) {
+        postDto.setPostId(postId);
         PostEntity entity = modelMapper.map(postDto, PostEntity.class);
-        entity.setPostId(postId);
-        entity = postRepository.save(entity);
-        return modelMapper.map(entity, PostDto.class);
+//        entity = postRepository.save(entity);
+        return modelMapper.map(postRepository.save(entity), PostDto.class);
     }
 }
