@@ -1,9 +1,8 @@
 package com.example.auditor.entities;
 
 
-import jakarta.persistence.Column;
-import jakarta.persistence.EntityListeners;
-import jakarta.persistence.MappedSuperclass;
+import jakarta.persistence.*;
+import lombok.Data;
 import org.hibernate.envers.Audited;
 import org.springframework.data.annotation.CreatedBy;
 import org.springframework.data.annotation.CreatedDate;
@@ -14,8 +13,9 @@ import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 import java.time.LocalDateTime;
 
 @EntityListeners(AuditingEntityListener.class)
-@MappedSuperclass
 @Audited
+@Data
+@MappedSuperclass
 public class AuditEntity {
 
 
@@ -32,5 +32,7 @@ public class AuditEntity {
 
     @LastModifiedBy
     private String modifiedBy;
+
+
 
 }
