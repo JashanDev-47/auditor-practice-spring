@@ -3,7 +3,9 @@ package com.example.auditor.controllers;
 
 import com.example.auditor.dtos.PostDto;
 import com.example.auditor.services.PostService;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -22,9 +24,13 @@ public class PostController {
         return service.getAllPosts();
     }
 
+    @GetMapping("/{postId}")
+    public PostDto getPostById(@PathVariable Long postId) {
+        return service.getPostById(postId);
+    }
 
     @PostMapping
-    public PostDto createPost(@RequestBody PostDto postDto) {
+    public PostDto createPost(@RequestBody @Valid PostDto postDto) {
         return service.createPost(postDto);
     }
 

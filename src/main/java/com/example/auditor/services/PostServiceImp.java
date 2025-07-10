@@ -43,4 +43,12 @@ public class PostServiceImp implements PostService {
 //        entity = postRepository.save(entity);
         return modelMapper.map(postRepository.save(entity), PostDto.class);
     }
+
+    @Override
+    public PostDto getPostById(Long postId) {
+        PostEntity entity = postRepository.findById(postId).orElse(null);
+
+
+        return modelMapper.map(entity, PostDto.class);
+    }
 }
